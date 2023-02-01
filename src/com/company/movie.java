@@ -1,8 +1,6 @@
 package com.company;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.IOException;  // Import the IOException class to handle errors
 import java.util.Scanner;
 
 public class movie {
@@ -15,30 +13,17 @@ public class movie {
         double length=INPUT.nextDouble();
         System.out.print("\nRating\n>");
         int rating=INPUT.nextInt();
-        movieFile(name,description,length,rating);
-
+        file.makeFile(name);
+        file.writeFile(name,"name: "+name+"\n, rating: "+rating+"\n, length: "+length+"\n, description: "+description);
+        file.writeFile("movieList",file.fileRead("movieList").replace(", ","\n")+"\n"+name);
+    }
+    public static String movieRead(String name){
+        String movieStuff=file.fileRead(name);
+        return movieStuff.replace("name: ","\n").replace("rating: ","\n").replace("length: ","\n").replace("description: ","\n");
+    }
+    public static String movieList(){
+        return file.fileRead("movieList").replace(", ","\n");
     }
 
-    private static void movieFile(String name, String description, double length, int rating){
-        File f = new File("F:\\"+name+".txt");
 
-        try {
-            //create and write movie file
-            if (f.createNewFile()){
-                System.out.println(name + " has been created");
-                FileWriter fWrite = new FileWriter(name+".txt");
-                fWrite.write("Name: "+name+"\nDescription: "+description+"\nLength: "+length+"\nRating: "+rating); }
-            //movie is already saved
-            else{
-                System.out.println(name + " already exists");
-            }
-        }
-        catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-        //file stuff from:
-        //https://www.w3schools.com/java/java_files_create.asp
-        //https://www.geeksforgeeks.org/file-class-in-java/
-    }
 }

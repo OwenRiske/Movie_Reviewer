@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 
 public class file {
+    //make a file
     public static void makeFile(String fileName) {
         try {
             File myObj = new File(fileName + ".txt");
@@ -20,6 +21,7 @@ public class file {
             e.printStackTrace();
         }
     }
+    //write in file
     public static void writeFile(String fileName, String text){
         try {
             FileWriter myWriter = new FileWriter(fileName+".txt");
@@ -30,6 +32,7 @@ public class file {
             e.printStackTrace();
         }
     }
+    //read file
     public static String fileRead(String fileName){
         try {
             File myObj = new File(fileName+".txt");

@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 
 public class wordAccuracy {
+    //find out how closely two words are
     public static int word_accuracy(String wordToCheck, String wordForChecking) {
         ArrayList<String> firstInput = new ArrayList<>(Arrays.asList(wordForChecking.split("")));
         ArrayList<String> secondInput = new ArrayList<>(Arrays.asList(wordToCheck.split("")));

@@ -13,7 +13,7 @@ public class file {
         try {
             File myObj = new File(fileName + ".txt");
             if (myObj.createNewFile()) {
-                System.out.println("Movie added: " + myObj.getName());
+                System.out.println("Movie added: " + myObj.getName().replace(".txt",""));
             }
         } catch (IOException e) {
             System.out.println("An error occurred.");
@@ -43,27 +43,8 @@ public class file {
             myReader.close();
             return String.join(", ", total);
         } catch (FileNotFoundException e) {
-            System.out.println("The file you are trying to find isn't recorded on this system.");
-            e.printStackTrace();
-            return "ERROR";
-        }
-    }
-
-    private String readFile(String file) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader (file));
-        String         line = null;
-        StringBuilder  stringBuilder = new StringBuilder();
-        String         ls = System.getProperty("line.separator");
-
-        try {
-            while((line = reader.readLine()) != null) {
-                stringBuilder.append(line);
-                stringBuilder.append(ls);
-            }
-
-            return stringBuilder.toString();
-        } finally {
-            reader.close();
+            System.out.println("The movie you are trying to find has yet to be added.");
+            return "";
         }
     }
 }

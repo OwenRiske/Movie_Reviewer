@@ -1,6 +1,5 @@
 package com.company;
 
-import java.io.IOException;  // Import the IOException class to handle errors
 import java.util.Scanner;
 
 public class movie {
@@ -14,7 +13,7 @@ public class movie {
         System.out.print("\nRating\n>");
         int rating=INPUT.nextInt();
         file.makeFile(name);
-        file.writeFile(name,"name: "+name+"\n, rating: "+rating+"\n, length: "+length+"\n, description: "+description);
+        file.writeFile(name,"name: "+name+"\n rating: "+rating+"\n length: "+length+"\n description: "+description);
         file.writeFile("movieList",file.fileRead("movieList").replace(", ","\n")+"\n"+name);
     }
     public static String movieRead(String name){

@@ -33,7 +33,7 @@ public class Main {
             }
             //user inputs an unknown choice
             else{
-                System.out.println("");//add message for when someone asks for a function that isn't available
+                System.out.println("Sorry, "+userInput+" isn't an available option");
             }
         }
     }

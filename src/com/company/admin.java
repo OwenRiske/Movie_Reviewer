@@ -15,8 +15,9 @@ public class admin {
         //only let through if password was inputted, they didn't quit
         if (userInput.equalsIgnoreCase(adminPass)) {
             while (true) {
-                System.out.print("\n1. Add Movie\n2. Movie List\n3. Exit\n>");
-                userInput = INPUT.nextLine();
+                    System.out.print("\n1. Add Movie\n2. Movie List\n3. Exit\n>");
+                    userInput = INPUT.nextLine();
+
                 //add movie
                 if (userInput.equalsIgnoreCase("Add Movie")||userInput.equalsIgnoreCase("Add")|| userInput.equalsIgnoreCase("1")){
                     movie.makeMovie(INPUT);
@@ -28,6 +29,9 @@ public class admin {
                 //exit admin stuff
                 else if (userInput.equalsIgnoreCase("3")||userInput.equalsIgnoreCase("exit")||userInput.equalsIgnoreCase("quit")){
                     break;
+                }
+                else {
+                    System.out.println("Sorry, " + userInput + " isn't an available option");
                 }
             }
         }

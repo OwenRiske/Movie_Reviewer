@@ -1,4 +1,4 @@
 name: test 2
- rating: 2
- length: 2.0
- description: 2
+ rating: 1
+ length: 1.0
+ description: 1

@@ -21,6 +21,19 @@ public class movie {
         //add movie to the file movieList
         file.writeFile("movieList",file.fileRead("movieList").replace(", ","\n")+"\n"+name);
     }
+    public static void editMovie(String name, Scanner INPUT){
+        //input
+        System.out.print("\nMovie Description\n>");
+        String description=INPUT.nextLine();
+        System.out.print("\nMovie Length\n>");
+        double length=INPUT.nextDouble();
+        System.out.print("\nRating\n>");
+        int rating=INPUT.nextInt();
+        //overwrite a file for each movie
+
+        file.writeFile(name,"name: "+name+"\n rating: "+rating+"\n length: "+length+"\n description: "+description);
+        //add movie to the file movieList
+    }
     public static String movieRead(String name){
         //output movie information
         String movieStuff=file.fileRead(name);

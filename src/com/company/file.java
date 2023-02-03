@@ -50,6 +50,16 @@ public class file {
             return "";
         }
     }
+    public static void removeFile(String fileName){
+        File Obj = new File("myfile.txt");
+        if (Obj.delete()) {
+            System.out.println("Successfully deleted "+Obj.getName());
+        }
+        else {
+            System.out.println(
+                    "Failed to delete.");
+        }
+    }
 }
 
 

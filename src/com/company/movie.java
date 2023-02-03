@@ -1,6 +1,7 @@
 //Owen Riske
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class movie {
@@ -42,6 +43,15 @@ public class movie {
     public static String movieList(){
         //list all the movies
         return file.fileRead("movieList").replace(", ","\n");
+    }
+    public static void deleteMovie(String fileName){
+        String[] movieList=file.fileRead("movieList").split(", ");
+        ArrayList<String> movieList = new ArrayList<String>(file.fileRead("movieList").split(", "));
+         for (int i = 0; i < movieList.length; i++) {
+            if (movieList[i].equalsIgnoreCase(fileName)){
+                movieList.re
+            }
+        }
     }
 
 

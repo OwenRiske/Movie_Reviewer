@@ -15,7 +15,7 @@ public class admin {
         //only let through if password was inputted, they didn't quit
         if (userInput.equalsIgnoreCase(adminPass)) {
             while (true) {
-                    System.out.print("\n1. Add Movie\n2. Edit Movie \n3. Movie List\n4. Exit\n>");
+                    System.out.print("\n1. Add Movie\n2. Edit Movie \n3. Remove Movie \n4. Movie List\n5. Exit\n>");
                     userInput = INPUT.nextLine();
 
                 //add movie
@@ -29,12 +29,16 @@ public class admin {
                         movie.editMovie(userInput, INPUT);
                     }
                 }
+                else if (userInput.equalsIgnoreCase("Remove Movie")||userInput.equalsIgnoreCase("Remove")||userInput.equalsIgnoreCase("3")){
+                    System.out.println("Movie name\n>");
+                    movie.deleteMovie(INPUT.nextLine());
+                }
                 //print all movie names
-                else if (userInput.equalsIgnoreCase("Movie List")||userInput.equalsIgnoreCase("List")||userInput.equalsIgnoreCase("3")){
+                else if (userInput.equalsIgnoreCase("Movie List")||userInput.equalsIgnoreCase("List")||userInput.equalsIgnoreCase("4")){
                     System.out.println(movie.movieList());
                 }
                 //exit admin stuff
-                else if (userInput.equalsIgnoreCase("4")||userInput.equalsIgnoreCase("exit")||userInput.equalsIgnoreCase("quit")){
+                else if (userInput.equalsIgnoreCase("5")||userInput.equalsIgnoreCase("exit")||userInput.equalsIgnoreCase("quit")){
                     break;
                 }
                 else {

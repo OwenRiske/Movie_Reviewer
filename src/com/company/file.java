@@ -60,6 +60,9 @@ public class file {
                     "Failed to delete.");
         }
     }
+    public static void clearFile(String fileName){
+        writeFile(fileName,"");
+    }
 }
 
 

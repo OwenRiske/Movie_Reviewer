@@ -2,6 +2,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class movie {
@@ -45,13 +46,17 @@ public class movie {
         return file.fileRead("movieList").replace(", ","\n");
     }
     public static void deleteMovie(String fileName){
-        String[] movieList=file.fileRead("movieList").split(", ");
-        ArrayList<String> movieList = new ArrayList<String>(file.fileRead("movieList").split(", "));
-         for (int i = 0; i < movieList.length; i++) {
-            if (movieList[i].equalsIgnoreCase(fileName)){
-                movieList.re
+        ArrayList<String> movieList = new ArrayList<String>(Arrays.asList(file.fileRead("movieList").split(", ")));
+         for (int i = 0; i < movieList.size(); i++) {
+            if (movieList.get(i).equalsIgnoreCase(fileName)){
+                movieList.remove(i);
             }
         }
+         file.clearFile("movieList");
+        for (int i = 0; i < movieList.size(); i++) {
+            file.writeFile("movieList",file.fileRead("movieList")+movieList.get(i));
+        }
+         file.removeFile(fileName);
     }
 
 

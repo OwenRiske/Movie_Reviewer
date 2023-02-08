@@ -4,6 +4,7 @@ package com.company;
 
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -20,6 +21,8 @@ public class file {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
+
+
     }
     //write in file
     public static void writeFile(String fileName, String text){
@@ -51,15 +54,26 @@ public class file {
         }
     }
     public static void removeFile(String fileName){
-        File Obj = new File("myfile.txt");
-        if (Obj.delete()) {
-            System.out.println("Successfully deleted "+Obj.getName());
+        try
+        {
+            File f= new File("E:\\"+fileName+".txt");           //file to be delete
+            if(f.delete())                      //returns Boolean value
+            {
+                System.out.println(fileName + " was succesfully deleted");   //getting and printing the file name
+            }
+            else
+            {
+                System.out.println("There was an issue with deleting "+fileName);
+            }
         }
-        else {
-            System.out.println(
-                    "Failed to delete.");
+        catch(Exception e)
+        {
+            e.printStackTrace();
         }
     }
+
+
+
     public static void clearFile(String fileName){
         writeFile(fileName,"");
     }
